@@ -7,19 +7,31 @@ $button.addEventListener('click', (e) => {
 });
 
 
-    // Select all <li> elements
-    const navItems = document.querySelectorAll('.sidebar-nav li');
+document.addEventListener("DOMContentLoaded", function() {
+  var currentPage = window.location.pathname.split('/').pop(); // Get the current page URL
+  var sidebarItems = document.querySelectorAll(".sidebar-nav > li");
+  sidebarItems.forEach(function(item) {
+      var anchor = item.querySelector("a");
+      var href = anchor.getAttribute("href").split('/').pop(); // Get the href attribute of the anchor tag
+      if (currentPage === href) {
+          item.classList.add("active");
+      } else {
+          item.classList.remove("active");
+      }
+  });
 
-    // Add click event listener to each <li>
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Remove active-background class from all <li>
-            navItems.forEach(nav => nav.classList.remove('active-background'));
-            
-            // Add active-background class to the clicked <li>
-            this.classList.add('active-background');
-        });
-    });
+  // Add click event listeners to update active class on click
+  sidebarItems.forEach(function(item) {
+      item.addEventListener("click", function() {
+          sidebarItems.forEach(function(item) {
+              item.classList.remove("active");
+          });
+          this.classList.add("active");
+      });
+  });
+});
+
+
 
 // Validate the form
 function validateForm() {
