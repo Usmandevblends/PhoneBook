@@ -2,6 +2,8 @@
 * {
   padding: 0;
   margin: 0;
+  user-select: none;
+  text-decoration: none !important;
 }
 
 body {
@@ -26,6 +28,8 @@ a:focus {
   margin-left: -250px;
   background: #1d3557;
   transition: all 0.5s ease;
+  box-shadow: #1d3557 0px 1px 15px;
+
 }
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
@@ -55,7 +59,7 @@ a:focus {
   display: block;
   text-decoration: none;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
 }
 .sidebar-nav > li > a:hover,
@@ -223,4 +227,13 @@ a:focus {
 .dropdown-item:active, .dropdown-item:focus, .dropdown-item:hover {
   background-color: transparent;
   color: inherit;
+}
+
+.btn-primary {
+  background-color: #1d3557 !important;
+  border: none;
+}
+
+.active-background {
+  background-color: #f0f0f0 !important; /* Change this to your desired color */
 }
