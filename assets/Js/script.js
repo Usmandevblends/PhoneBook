@@ -5,16 +5,14 @@ $button.addEventListener('click', (e) => {
   e.preventDefault();
   $wrapper.classList.toggle('toggled');
 });
-
-
 // form validation
+
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('loginForm');
   var cancelButton = document.getElementById('cancelButton');
 
   form.addEventListener('submit', function (event) {
       event.preventDefault();
-      event.stopPropagation();
 
       if (form.checkValidity() === true) {
           document.getElementById('submitMessage').style.display = 'block';
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 // add Background color in nav list
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -45,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
           item.classList.remove("active");
       }
   });
-
   // Add click event listeners to update active class on click
   sidebarItems.forEach(function(item) {
       item.addEventListener("click", function() {
@@ -58,20 +54,3 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Reset the form
-function resetForm() {
-  document.getElementById('firstName').value = '';
-  document.getElementById('lastName').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('password').value = '';
-  document.getElementById('submitMessage').style.display = 'none';
-}
-
-// Add event listener to reset form when modal is hidden
-document.addEventListener('DOMContentLoaded', function () {
-  let loginModal = document.getElementById('loginModal');
-  loginModal.addEventListener('hidden.bs.modal', resetForm);
-
-  let form = document.querySelector('form');
-  form.addEventListener('submit', handleFormSubmit);
-});
