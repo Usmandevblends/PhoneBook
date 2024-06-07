@@ -10,6 +10,13 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+button:focus{
+  outline: none;
+  border: none !;
+}
+
+
+
 a {
   transition: background 0.2s, color 0.2s;
 }
@@ -256,4 +263,40 @@ a:focus {
   text-decoration: none;
   color: #1d3557;
   background: #fff;
+}
+
+th {
+  color: #1d3557 !important;
+}
+
+@media (max-width: 786px) {
+  table {
+      font-size: 12px; 
+  }
+
+  .table-responsive {
+      overflow-x: auto; 
+  }
+
+  .table th,
+  .table td {
+      white-space: nowrap; 
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  table {
+      font-size: 15px; 
+  }
+
+  .table-responsive {
+      overflow-x: auto; 
+  }
+
+  .table th,
+  .table td {
+      white-space: nowrap; 
+  }
 }

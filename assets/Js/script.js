@@ -7,6 +7,32 @@ $button.addEventListener('click', (e) => {
 });
 
 
+// form validation
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('loginForm');
+  var cancelButton = document.getElementById('cancelButton');
+
+  form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (form.checkValidity() === true) {
+          document.getElementById('submitMessage').style.display = 'block';
+      } else {
+          form.classList.add('was-validated');
+      }
+  }, false);
+
+  cancelButton.addEventListener('click', function () {
+      form.reset();
+      form.classList.remove('was-validated');
+      document.getElementById('submitMessage').style.display = 'none';
+  });
+});
+
+
+// add Background color in nav list
+
 document.addEventListener("DOMContentLoaded", function() {
   var currentPage = window.location.pathname.split('/').pop(); // Get the current page URL
   var sidebarItems = document.querySelectorAll(".sidebar-nav > li");
@@ -31,34 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
-// Validate the form
-function validateForm() {
-  let firstName = document.getElementById('firstName').value;
-  let lastName = document.getElementById('lastName').value;
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  if (firstName === "" || lastName === "" || email === "" || password === "") {
-    alert("All fields are required.");
-    return false;
-  }
-  if (!emailPattern.test(email)) {
-    alert("Please enter a valid email address.");
-    return false;
-  }
-  return true;
-}
-
-// Handle form submission
-function handleFormSubmit(event) {
-  event.preventDefault();
-  if (validateForm()) {
-    document.getElementById('submitMessage').style.display = 'block';
-  }
-}
 
 // Reset the form
 function resetForm() {
